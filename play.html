@@ -48,7 +48,11 @@
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div class="progress-bar bg-info" style="width: 50%"></div>
+            <div
+              class="progress-bar bg-info"
+              id="bar1"
+              style="width: 50%"
+            ></div>
           </div>
         </div>
         <div class="col-1">
@@ -63,7 +67,11 @@
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div class="progress-bar bg-info" style="width: 50%"></div>
+            <div
+              class="progress-bar bg-info"
+              id="bar2"
+              style="width: 50%"
+            ></div>
           </div>
         </div>
       </div>
@@ -80,7 +88,11 @@
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div class="progress-bar bg-info" style="width: 50%"></div>
+            <div
+              class="progress-bar bg-info"
+              id="bar3"
+              style="width: 50%"
+            ></div>
           </div>
         </div>
         <div class="col-1">
@@ -95,7 +107,11 @@
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div class="progress-bar bg-info" style="width: 50%"></div>
+            <div
+              class="progress-bar bg-info"
+              id="bar4"
+              style="width: 50%"
+            ></div>
           </div>
         </div>
       </div>
@@ -107,8 +123,10 @@
 
     <!--PLAYING & TIME START-->
     <div class="container text-center">
-      <h4>Good Morning Mek</h4>
-      <h4>12.00</h4>
+      <h4 id="greeting"></h4>
+      <div style="text-align: center">
+        <span id="time"></span>
+      </div>
     </div>
     <!--PLAYING & TIME END-->
 
@@ -125,12 +143,24 @@
     <!--ACTIVITIES BUTTON -->
     <div class="container text-center" style="border: solid 1px black">
       <div class="d-grid gap-2 d-md-block" style="margin: 1%">
-        <button class="col-2 btn btn-primary" type="button">Makan</button>
+        <button
+          class="col-2 btn btn-primary"
+          type="button"
+          onclick="nambahMakan()"
+        >
+          Makan
+        </button>
         <button class="col-2 btn btn-primary" type="button">Tidur</button>
       </div>
       <div class="d-grid gap-2 d-md-block" style="margin: 1%">
-        <button class="col-2 btn btn-primary" type="button">Obat</button>
-        <button class="col-2 btn btn-primary" type="button">Main</button>
+        <button
+          class="col-2 btn btn-primary"
+          type="button"
+          onclick="nambahObat()"
+        >
+          Obat
+        </button>
+        <button class="col-2 btn btn-primary" type="submit">Main</button>
       </div>
     </div>
     <script
