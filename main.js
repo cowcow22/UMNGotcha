@@ -1,25 +1,84 @@
-let seconds = 0;
-setInterval(() => {
-  seconds++;
-  const gameSeconds = seconds * 60;
-  const days = Math.floor(gameSeconds / 86400);
-  const hours = Math.floor((gameSeconds % 86400) / 3600);
-  const minutes = Math.floor((gameSeconds % 3600) / 60);
-  const timeString = `${days.toString().padStart(2, "0")}:${hours
-    .toString()
-    .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
-  document.getElementById("time").textContent = timeString;
+let input = "";
+let hewan = "";
 
-  let greeting = "";
-  if (hours >= 0 && hours < 12) {
-    greeting = "Good Morning!";
-  } else if (hours >= 12 && hours < 18) {
-    greeting = "Good Afternoon!";
-  } else {
-    greeting = "Good Night!";
-  }
-  document.getElementById("greeting").textContent = greeting;
+function ambilNama() {
+    input = document.getElementById("inputName").value;
+    console.log(input);
+    localStorage.setItem('myVariable', input);
+    let activeCarouselItem = document.querySelector(".carousel-item.active");
+    hewan = activeCarouselItem.querySelector("img").getAttribute("alt");
+    localStorage.setItem('ambilHewan', hewan);
+    console.log(hewan);
+}
+
+const myVariable = localStorage.getItem('myVariable');
+const ambilHewan = localStorage.getItem('ambilHewan');
+console.log(ambilHewan);
+
+
+var kandangHewan;
+kandangHewan = document.getElementById("tempatHewan");
+if (ambilHewan == "anjing"){
+    const input = document.createElement(`img`);
+    input.className = "mx-auto";
+    input.src = "filependukungUTS/anjinglevel1.png";
+    input.style = "width: 15%; height: 15%";
+    kandangHewan.appendChild(input);
+} else if (ambilHewan == "kodok"){
+    const input = document.createElement(`img`);
+    input.className = "mx-auto";
+    input.src = "filependukungUTS/kodoklevel1.png";
+    input.style = "width: 15%; height: 15%";
+    kandangHewan.appendChild(input);
+} else if (ambilHewan == "marmut"){
+    const input = document.createElement(`img`);
+    input.className = "mx-auto";
+    input.src = "filependukungUTS/marmutlevel1.png";
+    input.style = "width: 15%; height: 15%";
+    kandangHewan.appendChild(input);
+}
+
+
+
+let seconds = 0;
+
+
+const now = new Date();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const timeString = `${hours}:${minutes}`;
+console.log(timeString);
+
+var waktu;
+
+waktu = hours * 60;
+seconds = waktu + minutes;
+console.log(seconds);
+
+setInterval(() => {
+
+    const gameSeconds = seconds * 60;
+    const days = Math.floor(gameSeconds / 86400);
+    const hours = Math.floor((gameSeconds % 86400) / 3600);
+    const minutes = Math.floor((gameSeconds % 3600) / 60);
+    const timeString = `${days.toString().padStart(2, "0")}:${hours
+        .toString()
+        .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+    document.getElementById("time").textContent = timeString;
+        
+        let greeting = "";
+        if (hours >= 0 && hours < 12) {
+            greeting = "Good Morning " + myVariable + "! ";
+        } else if (hours >= 12 && hours < 18) {
+            greeting = "Good Afternoon " + myVariable + "! ";
+        } else {
+            greeting = "Good Night " + myVariable + "! ";
+        }
+        document.getElementById("greeting").textContent = greeting;
+    seconds++;
 }, 1000);
+
+
 
 var points = 10;
 var element1 = document.querySelector("#bar1");
