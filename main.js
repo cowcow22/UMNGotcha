@@ -84,7 +84,7 @@ setInterval(() => {
   console.log(waktuBermain);
 
   //START NAIK LEVEL
-  if (waktuBermain == 9000000) {
+  if (waktuBermain == 900000) {
     c = "<strong>Level 3</strong>";
     c.class = "col";
     c.style = "font-weight: bold";
@@ -266,7 +266,7 @@ function disableMakan() {
   const hewan = document.getElementById("hewan");
   const hewanSrc = hewan.src;
 
-  if (waktuBermain > 9000000) {
+  if (waktuBermain > 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing3makan.png";
     }
@@ -276,7 +276,7 @@ function disableMakan() {
     if (ambilHewan == "marmut") {
       hewan.src = "filependukungUTS/marmut3makan.png";
     }
-  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+  } else if (waktuBermain >= 300000 && waktuBermain < 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing2makan.png";
     }
@@ -330,7 +330,7 @@ function disableTidur() {
   const hewan = document.getElementById("hewan");
   const hewanSrc = hewan.src;
 
-  if (waktuBermain > 9000000) {
+  if (waktuBermain > 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing3turu.png";
     }
@@ -340,7 +340,7 @@ function disableTidur() {
     if (ambilHewan == "marmut") {
       hewan.src = "filependukungUTS/marmut3turu.png";
     }
-  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+  } else if (waktuBermain >= 300000 && waktuBermain < 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing2turu.png";
     }
@@ -390,7 +390,7 @@ function disableHealth() {
   const hewan = document.getElementById("hewan");
   const hewanSrc = hewan.src;
 
-  if (waktuBermain > 9000000) {
+  if (waktuBermain > 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing3obat.png";
     }
@@ -400,7 +400,7 @@ function disableHealth() {
     if (ambilHewan == "marmut") {
       hewan.src = "filependukungUTS/marmut3obat.png";
     }
-  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+  } else if (waktuBermain >= 300000 && waktuBermain < 900000) {
     if (ambilHewan == "anjing") {
       hewan.src = "filependukungUTS/anjing2obat.png";
     }
