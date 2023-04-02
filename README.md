@@ -1,4 +1,5 @@
 # UTS-PTI-LEC
+UTS PTI LECTURE (IF231-C)
 KELOMPOK 6:
 - Felix Ivander (00000070040)
 - Jacques Farrel Dharma (00000069027)
