@@ -3,3 +3,33 @@
   height: 200px;
   border: solid black;
 }
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  z-index: -1;
+}
+
+#background.morning {
+  background-image: url("filependukungUTS/Pagi.png");
+}
+
+#background.afternoon {
+  background-image: url("filependukungUTS/Siang.png");
+}
+
+#background.night {
+  background-image: url("filependukungUTS/malam.png");
+}
+
+#backgroundIndex {
+  background-image: url("filependukungUTS/menuutama2.png");
+  background-size: cover;
+  background-position: center;
+}
