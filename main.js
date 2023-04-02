@@ -81,6 +81,7 @@ setInterval(() => {
   if (waktuBermain == null) waktuBermain = 0;
   else waktuBermain += 1000;
   seconds++;
+  console.log(waktuBermain);
 
   //START NAIK LEVEL
   if (waktuBermain == 9000000) {
@@ -245,11 +246,14 @@ function nambahMakan() {
     widthSize1 += 50;
   } else {
     widthSize1 += 100;
+
     if (widthSize1 >= 100) {
       widthSize1 = 100;
     }
   }
+  widthSize2 -= 5;
   element1.style.width = widthSize1.toFixed(2) + "%";
+  element2.style.width = widthSize2.toFixed(2) + "%";
   console.log(widthSize1);
 }
 
@@ -437,6 +441,11 @@ function nambahMain() {
   if (widthSize4 >= 100) {
     widthSize4 = 100;
   }
+
+  widthSize1 -= 5;
+  widthSize2 -= 5;
+  element1.style.width = widthSize1.toFixed(4) + "%";
+  element2.style.width = widthSize2.toFixed(4) + "%";
   element4.style.width = widthSize4.toFixed(4) + "%";
   console.log(widthSize4);
 }
@@ -447,7 +456,6 @@ function disableMain() {
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
-  // Wait for 15 seconds
   setTimeout(function () {
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
