@@ -1,5 +1,10 @@
 # UTS-PTI-LEC
-UTS NGAB
+KELOMPOK 6:
+- Felix Ivander (00000070040)
+- Jacques Farrel Dharma (00000069027)
+- Stevanus Firman Widyatmoko (00000069971)
+- Evan Yo (00000068870)
+
 
 ATURAN GAMEPLAY (Seluruh Waktu Dalam Hitungan Waktu Game, 1 Menit di Game = 1 Detik di Real Life, Format Waktu DD:HH:MM):
 1. Setiap Tidur, Status Tidur Naik Menjadi 100% (Jika Status Makan Dibawah 40% Status Tidur Hanya Bertambah 60%).
