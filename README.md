@@ -1,19 +1,20 @@
 # UTS-PTI-LEC
 UTS NGAB
 
-ATURAN GAMEPLAY (Seluruh Waktu Dalam Hitungan Waktu Game, 1 Menit di Game = 1 Detik di Real Life):
+ATURAN GAMEPLAY (Seluruh Waktu Dalam Hitungan Waktu Game, 1 Menit di Game = 1 Detik di Real Life, Format Waktu DD:HH:MM):
 1. Setiap Tidur, Status Tidur Naik Menjadi 100% (Jika Status Makan Dibawah 40% Status Tidur Hanya Bertambah 60%).
 2. Tidur Akan Berkurang 20% Setiap 1 Jam.
 3. Cooldown Tidur Berlangsung Selama 1 Jam.
-4. Setiap Makan, Status Makan Naik Menjadi 100% (Jika Status Main Sama Dengan 0%, Status Makan Hanya Bertambah 50%).
+4. Setiap Makan, Status Makan Naik Menjadi 100%, Tapi Status Tidur Berkurang 5% (Jika Status Main Sama Dengan 0%, Status Makan Hanya Bertambah 50%).
 5. Makan Akan Berkurang 20% Setiap 25 Menit.
-6. COOLDOWN MAKAN 15 MENIT. 
-7. SETIAP HEALTH, STATUS HEALTH NAIK MENJADI 100% (JIKA HEALTH SAMA DENGAN 0, MAKA GAME SELESAI).
-8. HEALTH BERKURANG 20% SAAT TIDUR DIBAWAH 50% ATAU MAKAN DIBAWAH 30%.
-9. COOLDOWN HEALTH BERLANGSUNG SELAMA 1 JAM. 
-10. SETIAP MAIN, STATUS MAIN NAIK MENJADI 100% (JIKA STATUS TIDUR DIBAWAH 40% ATAU MAKAN DIBAWAH 50%, STATUS MAIN HANYA BERTAMBAH 50%).
-11. MAIN AKAN BERKURANG 20% SELAMA 20 MENIT.
-12. COOLDOWN MAIN BERLANGSUNG SELAMA 30 MENIT.
-13. LEVEL 2 AKAN TERCAPAI KETIKA WAKTU BERTAHAN SUDAH MENCAPAI 5 JAM.
-14. LEVEL 3 AKAN TERCAPAI KETIKA WAKTU BERTAHAN SUDAH MENCAPAI 15 JAM.
-15. KETIKA BERMAIN MAKA STATUS MAKAN DAN BEDTIME AKAN BERKURANG SEBANYAK 20%.
+6. Cooldown Makan 15 Menit. 
+7. Setiap Health, Status Health Naik Menjadi 100% (Jika Health Sama Dengan 0, Maka Game Selesai).
+8. Health Berkurang 20% Saat Tidur Dibawah 30% Atau Makan Dibawah 30%, Dengan Interval Waktu 20 Menit.
+9. Cooldown Health Berlangsung Selama 30 Menit. 
+10. Setiap Main, Status Main Naik Menjadi 100%, Tapi Status Makan Dan Tidur Akan Berkurang Sebanyak 5%.(Jika Status Tidur Dibawah 40% Atau Makan Dibawah 50%, Status Main Hanya Bertambah 50%).
+11. Setiap Kali Bermain, Pemain Harus Mengisi TikTakToe Yang Disediakan.
+12. Main Akan Berkurang 20% Selama 30 Menit.
+13. Cooldown Main Berlangsung Selama 30 Menit.
+14. Level 2 Akan Tercapai Ketika Waktu Bertahan Sudah Mencapai 5 Jam.
+15. Level 3 Akan Tercapai Ketika Waktu Bertahan Sudah Mencapai 15 Jam.
+16. Kami Menambahkan Fitur Backsong.
