@@ -20,18 +20,21 @@ var kandangHewan;
 kandangHewan = document.getElementById("tempatHewan");
 if (ambilHewan == "anjing") {
   const input = document.createElement(`img`);
+  input.id = "hewan";
   input.className = "mx-auto";
   input.src = "filependukungUTS/anjinglevel1.png";
   input.style = "width: 15%; height: 15%";
   kandangHewan.appendChild(input);
 } else if (ambilHewan == "kodok") {
   const input = document.createElement(`img`);
+  input.id = "hewan";
   input.className = "mx-auto";
   input.src = "filependukungUTS/kodoklevel1.png";
   input.style = "width: 15%; height: 15%";
   kandangHewan.appendChild(input);
 } else if (ambilHewan == "marmut") {
   const input = document.createElement(`img`);
+  input.id = "hewan";
   input.className = "mx-auto";
   input.src = "filependukungUTS/marmutlevel1.png";
   input.style = "width: 15%; height: 15%";
@@ -80,17 +83,86 @@ setInterval(() => {
   seconds++;
 
   //START NAIK LEVEL
-  if (waktuBermain > 9000000) {
+  if (waktuBermain == 9000000) {
     c = "<strong>Level 3</strong>";
     c.class = "col";
     c.style = "font-weight: bold";
     document.getElementById("level").innerHTML = c;
-  } else if (waktuBermain > 300000) {
+    alert(
+      "Selamat Anda Telah Mencapai Level Maks, Anda Bisa Lanjut Atau Mengulang Dengan Cara Refresh"
+    );
+    if (ambilHewan == "anjing") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/anjinglevel3.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+    if (ambilHewan == "kodok") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/kodoklevel3.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+    if (ambilHewan == "marmut") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/marmutlevel3.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+  } else if (waktuBermain == 300000) {
     b = "<strong>Level 2</strong>";
     b.class = "col";
     b.style = "font-weight: bold";
     document.getElementById("level").innerHTML = b;
-  } else {
+    if (ambilHewan == "anjing") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/anjinglevel2.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+    if (ambilHewan == "kodok") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/kodoklevel2.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+    if (ambilHewan == "marmut") {
+      const input = document.createElement(`img`);
+      input.id = "hewan";
+      input.className = "mx-auto";
+      input.src = "filependukungUTS/marmutlevel2.png";
+      input.style = "width: 15%; height: 15%";
+      document
+        .getElementById("tempatHewan")
+        .removeChild(document.getElementById("hewan"));
+      kandangHewan.appendChild(input);
+    }
+  } else if (waktuBermain == 0) {
     a = "<strong>Level 1</strong>";
     a.class = "col";
     a.style = "font-weight: bold";
@@ -129,13 +201,31 @@ const intervalIdTidur = setInterval(() => {
 }, 60000);
 
 //Health
+var life = 1;
 const intervalIdHealth = setInterval(() => {
+  //START HEWAN MATI
+  if (widthSize3 == 0 && life == 1) {
+    document.getElementById("buttonMakan").disabled = true;
+    document.getElementById("buttonTidur").disabled = true;
+    document.getElementById("buttonHealth").disabled = true;
+    document.getElementById("buttonMain").disabled = true;
+
+    const hewan = document.getElementById("hewan");
+    const hewanSrc = hewan.src;
+
+    hewan.src = "filependukungUTS/iconDeath.png";
+    life--;
+    alert("Hewan Anda Sudah Mati, Silahkan Refresh");
+  }
+  //END HEWAN MATI
+
   if (widthSize1 < 30 || widthSize2 < 30) {
     widthSize3 -= 20;
     if (widthSize3 < 0) {
       widthSize3 = 0;
     }
   }
+
   element3.style.width = widthSize3.toFixed(2) + "%";
 }, 20000);
 
@@ -169,7 +259,43 @@ function disableMakan() {
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
+  const hewan = document.getElementById("hewan");
+  const hewanSrc = hewan.src;
+
+  if (waktuBermain > 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing3makan.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok3makan.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut3makan.png";
+    }
+  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing2makan.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok2makan.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut2makan.png";
+    }
+  } else if (waktuBermain >= 0 && waktuBermain < 300000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing1makan.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok1makan.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut1makan.png";
+    }
+  }
+
   setTimeout(function () {
+    hewan.src = hewanSrc;
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
@@ -197,7 +323,43 @@ function disableTidur() {
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
+  const hewan = document.getElementById("hewan");
+  const hewanSrc = hewan.src;
+
+  if (waktuBermain > 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing3turu.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok3turu.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut3turu.png";
+    }
+  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing2turu.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok2turu.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut2turu.png";
+    }
+  } else if (waktuBermain >= 0 && waktuBermain < 300000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing1turu.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok1turu.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut1turu.png";
+    }
+  }
+
   setTimeout(function () {
+    hewan.src = hewanSrc;
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
@@ -221,7 +383,43 @@ function disableHealth() {
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
+  const hewan = document.getElementById("hewan");
+  const hewanSrc = hewan.src;
+
+  if (waktuBermain > 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing3obat.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok3obat.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut3obat.png";
+    }
+  } else if (waktuBermain >= 300000 && waktuBermain < 9000000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing2obat.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok2obat.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut2obat.png";
+    }
+  } else if (waktuBermain >= 0 && waktuBermain < 300000) {
+    if (ambilHewan == "anjing") {
+      hewan.src = "filependukungUTS/anjing1obat.png";
+    }
+    if (ambilHewan == "kodok") {
+      hewan.src = "filependukungUTS/kodok1obat.png";
+    }
+    if (ambilHewan == "marmut") {
+      hewan.src = "filependukungUTS/marmut1obat.png";
+    }
+  }
+
   setTimeout(function () {
+    hewan.src = hewanSrc;
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
@@ -263,3 +461,25 @@ function disableMain() {
 const audio = document.getElementById("audioGame");
 audio.volume = 0.3;
 //END MUSIC
+
+//START SET BACKGROUND
+var background = document.getElementById("background");
+
+function setBackground() {
+  const gameSeconds = seconds * 60;
+  const days = Math.floor(gameSeconds / 86400);
+  const hours = Math.floor((gameSeconds % 86400) / 3600);
+
+  if (hours >= 0 && hours < 12) {
+    background.className = "morning";
+  } else if (hours >= 12 && hours < 18) {
+    background.className = "afternoon";
+  } else {
+    background.className = "night";
+  }
+  console.log(hours);
+}
+
+setBackground();
+setInterval(setBackground, 1000);
+//END SET BACKGROUND
