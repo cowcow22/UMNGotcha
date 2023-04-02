@@ -483,3 +483,93 @@ function setBackground() {
 setBackground();
 setInterval(setBackground, 1000);
 //END SET BACKGROUND
+
+//START TIKTAKTOE
+const playBtn = document.getElementById("buttonMain");
+const board = document.getElementById("board");
+const squares = document.querySelectorAll(".square");
+
+let currentPlayer = "X";
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
+
+function handleClick(square, index) {
+  if (square.textContent !== "" || checkWinner() || currentPlayer === "O") {
+    return;
+  }
+
+  square.textContent = currentPlayer;
+  gameBoard[index] = currentPlayer;
+  if (checkWinner()) {
+    alert(`${currentPlayer} wins!`);
+    resetBoard();
+    return;
+  }
+  if (gameBoard.every((square) => square !== "")) {
+    alert("Tie game!");
+    resetBoard();
+    return;
+  }
+  currentPlayer = "O";
+  setTimeout(botTurn, 500);
+}
+
+function checkWinner() {
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  return winningCombinations.some((combination) => {
+    return (
+      gameBoard[combination[0]] !== "" &&
+      gameBoard[combination[0]] === gameBoard[combination[1]] &&
+      gameBoard[combination[1]] === gameBoard[combination[2]]
+    );
+  });
+}
+
+function resetBoard() {
+  squares.forEach((square) => (square.textContent = ""));
+  currentPlayer = "X";
+  gameBoard = ["", "", "", "", "", "", "", "", ""];
+  board.style.display = "none";
+}
+
+function botTurn() {
+  const emptySquares = gameBoard.reduce((acc, curr, index) => {
+    if (curr === "") {
+      acc.push(index);
+    }
+    return acc;
+  }, []);
+  const randomIndex = Math.floor(Math.random() * emptySquares.length);
+  const botSquare = squares[emptySquares[randomIndex]];
+  botSquare.textContent = "O";
+  gameBoard[emptySquares[randomIndex]] = "O";
+  if (checkWinner()) {
+    alert("Bot wins!");
+    resetBoard();
+    return;
+  }
+  if (gameBoard.every((square) => square !== "")) {
+    alert("Tie game!");
+    resetBoard();
+    return;
+  }
+  currentPlayer = "X";
+}
+
+playBtn.addEventListener("click", () => {
+  board.style.display = "block";
+});
+
+squares.forEach((square, index) => {
+  square.addEventListener("click", () => handleClick(square, index));
+});
+
+//END TIKTAKTOE
