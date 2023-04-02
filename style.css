@@ -1,3 +1,22 @@
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid black;
+  float: left;
+}
+
+#board {
+  width: 310px;
+  height: 310px;
+  margin: 0 auto;
+  display: none;
+}
+
+#play-btn {
+  margin-top: 20px;
+}
+
 #kotak {
   width: 50%;
   height: 200px;
@@ -32,4 +51,19 @@
   background-image: url("filependukungUTS/menuutama2.png");
   background-size: cover;
   background-position: center;
+}
+
+@font-face {
+  font-family: "Minecraft Regular";
+  src: url("filependukungUTS/MinecraftRegular-Bmg3.otf");
+}
+
+@font-face {
+  font-family: "Minecraft Bold";
+  src: url("filependukungUTS/MinecraftBold-nMK1.otf");
+}
+
+@font-face {
+  font-family: "Minecraft Italic";
+  src: url("filependukungUTS/MinecraftItalic-R8Mo.otf");
 }
