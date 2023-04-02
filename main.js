@@ -53,6 +53,7 @@ var waktu;
 waktu = hours * 60;
 seconds = waktu + minutes;
 console.log(seconds);
+var waktuBermain;
 
 setInterval(() => {
   const gameSeconds = seconds * 60;
@@ -73,7 +74,29 @@ setInterval(() => {
     greeting = "Good Night " + myVariable + "! ";
   }
   document.getElementById("greeting").textContent = greeting;
+
+  if (waktuBermain == null) waktuBermain = 0;
+  else waktuBermain += 1000;
   seconds++;
+
+  //START NAIK LEVEL
+  if (waktuBermain > 9000000) {
+    c = "<strong>Level 3</strong>";
+    c.class = "col";
+    c.style = "font-weight: bold";
+    document.getElementById("level").innerHTML = c;
+  } else if (waktuBermain > 300000) {
+    b = "<strong>Level 2</strong>";
+    b.class = "col";
+    b.style = "font-weight: bold";
+    document.getElementById("level").innerHTML = b;
+  } else {
+    a = "<strong>Level 1</strong>";
+    a.class = "col";
+    a.style = "font-weight: bold";
+    document.getElementById("level").innerHTML = a;
+  }
+  //END NAIK LEVEL
 }, 1000);
 //END JAM
 
@@ -87,8 +110,8 @@ var widthSize3 = parseFloat(element3.style.width);
 var element4 = document.querySelector("#bar4");
 var widthSize4 = parseFloat(element4.style.width);
 
+//Makan
 const intervalIdMakan = setInterval(() => {
-  //Makan
   widthSize1 -= 20;
   if (widthSize1 < 0) {
     widthSize1 = 0;
@@ -96,8 +119,8 @@ const intervalIdMakan = setInterval(() => {
   element1.style.width = widthSize1.toFixed(2) + "%";
 }, 25000);
 
+//Tidur
 const intervalIdTidur = setInterval(() => {
-  //Tidur
   widthSize2 -= 20;
   if (widthSize2 < 0) {
     widthSize2 = 0;
@@ -105,9 +128,9 @@ const intervalIdTidur = setInterval(() => {
   element2.style.width = widthSize2.toFixed(2) + "%";
 }, 60000);
 
+//Health
 const intervalIdHealth = setInterval(() => {
-  //Health
-  if (widthSize1 < 30 || widthSize2 < 50) {
+  if (widthSize1 < 30 || widthSize2 < 30) {
     widthSize3 -= 20;
     if (widthSize3 < 0) {
       widthSize3 = 0;
@@ -116,14 +139,14 @@ const intervalIdHealth = setInterval(() => {
   element3.style.width = widthSize3.toFixed(2) + "%";
 }, 20000);
 
+//Main
 const intervalIdMain = setInterval(() => {
-  //Main
   widthSize4 -= 20;
   if (widthSize4 < 0) {
     widthSize4 = 0;
   }
   element4.style.width = widthSize4.toFixed(2) + "%";
-}, 20000);
+}, 30000);
 //END PENGURANGAN PROGRESS
 
 //START FUNCTION MAKAN
@@ -141,22 +164,18 @@ function nambahMakan() {
 }
 
 function disableMakan() {
-  // Disable the button
   document.getElementById("buttonMakan").disabled = true;
   document.getElementById("buttonTidur").disabled = true;
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
-  // Wait for 15 seconds
   setTimeout(function () {
-    // Enable the button
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
     document.getElementById("buttonMain").disabled = false;
   }, 15000);
 }
-
 //END FUNCTION MAKAN
 
 //START FUNCTION TIDUR
@@ -173,15 +192,12 @@ function nambahTidur() {
 }
 
 function disableTidur() {
-  // Disable the button
   document.getElementById("buttonMakan").disabled = true;
   document.getElementById("buttonTidur").disabled = true;
   document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
-  // Wait for 15 seconds
   setTimeout(function () {
-    // Enable the button
     document.getElementById("buttonMakan").disabled = false;
     document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
@@ -200,14 +216,17 @@ function nambahHealth() {
   console.log(widthSize3);
 }
 function disableHealth() {
-  // Disable the button
+  document.getElementById("buttonMakan").disabled = true;
+  document.getElementById("buttonTidur").disabled = true;
   document.getElementById("buttonHealth").disabled = true;
+  document.getElementById("buttonMain").disabled = true;
 
-  // Wait for 15 seconds
   setTimeout(function () {
-    // Enable the button
+    document.getElementById("buttonMakan").disabled = false;
+    document.getElementById("buttonTidur").disabled = false;
     document.getElementById("buttonHealth").disabled = false;
-  }, 60000);
+    document.getElementById("buttonMain").disabled = false;
+  }, 30000);
 }
 //END FUNCTION HEALTH
 
@@ -225,18 +244,22 @@ function nambahMain() {
 }
 
 function disableMain() {
-  // Disable the button
+  document.getElementById("buttonMakan").disabled = true;
+  document.getElementById("buttonTidur").disabled = true;
+  document.getElementById("buttonHealth").disabled = true;
   document.getElementById("buttonMain").disabled = true;
 
   // Wait for 15 seconds
   setTimeout(function () {
-    // Enable the button
+    document.getElementById("buttonMakan").disabled = false;
+    document.getElementById("buttonTidur").disabled = false;
+    document.getElementById("buttonHealth").disabled = false;
     document.getElementById("buttonMain").disabled = false;
   }, 30000);
 }
 // END FUNCTION MAIN
 
-//START NAIK LEVEL
-//a = "<div class="col" style="font-weight: bold">Level 1</div>";
-//document.getElementById("level").innerHTML = a;
-//END NAIK LEVEL
+//START MUSIC
+const audio = document.getElementById("audioGame");
+audio.volume = 0.3;
+//END MUSIC
